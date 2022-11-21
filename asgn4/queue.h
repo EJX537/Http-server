@@ -1,0 +1,33 @@
+//-----------------------------------------------------------------------------
+// Methods.h
+//-----------------------------------------------------------------------------
+#ifndef _QUEUE_H_
+#define _QUEUE_H_
+#include <stdbool.h>
+#include <pthread.h>
+// Export Types ---------------------------------------------------------------
+// All the component parts of the request sent by the client
+typedef struct queue queue_t;
+// Export Fuctions ------------------------------------------------------------
+// TODO: Explain ...
+queue_t *queue_new(int size);
+// TODO: Explain ...
+void queue_delete(queue_t **q);
+// TODO: Explain ...
+bool queue_push(queue_t *q, void *elem);
+// TODO: Explain ...
+bool queue_pop(queue_t *q, void **elem);
+// TODO: Explain ...
+pthread_mutex_t *lock_mutex(queue_t *q);
+// TODO: Explain ...
+pthread_cond_t *lock_full(queue_t *q);
+// TODO: Explain ...
+pthread_cond_t *lock_empty (queue_t *q);
+// TODO: Explain ...
+bool queue_full(queue_t *q);
+// TODO: Explain ...
+bool queue_empty (queue_t *q);
+// TODO: Explain ...
+int queue_length (queue_t *q);
+void clear(queue_t *q);
+#endif
